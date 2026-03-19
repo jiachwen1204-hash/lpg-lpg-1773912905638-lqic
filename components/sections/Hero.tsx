@@ -1,3 +1,5 @@
+'use client'
+
 import AnimateIn from '@/components/ui/AnimateIn'
 
 const CONTENT = {
@@ -122,87 +124,89 @@ export default function Hero() {
           </div>
 
           {/* Right: Floating UI mockup */}
-          <AnimateIn delay={200} animation="scale-in" className="hidden lg:block relative">
-            <div className="relative">
-              {/* Main dashboard card */}
-              <div className="relative rounded-card-lg border border-surface-overlay bg-surface-raised/80 backdrop-blur-xl p-6 shadow-card-lg overflow-hidden">
-                {/* Top accent line */}
-                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent" />
-                
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <span className="label-sm text-content-muted">AI Analytics Dashboard</span>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                      <span className="text-xs text-green-400">Real-time Processing</span>
+          <div className="hidden lg:block relative">
+            <AnimateIn delay={200}>
+              <div className="relative">
+                {/* Main dashboard card */}
+                <div className="relative rounded-card-lg border border-surface-overlay bg-surface-raised/80 backdrop-blur-xl p-6 shadow-card-lg overflow-hidden">
+                  {/* Top accent line */}
+                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent" />
+                  
+                  <div className="flex items-center justify-between mb-6">
+                    <div>
+                      <span className="label-sm text-content-muted">AI Analytics Dashboard</span>
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        <span className="text-xs text-green-400">Real-time Processing</span>
+                      </div>
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
                     </div>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center">
+
+                  {/* Fake chart */}
+                  <div className="flex items-end gap-1.5 h-28 mb-6">
+                    {[30, 55, 40, 70, 50, 85, 60, 90, 75, 95, 80, 100].map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 rounded-sm transition-all duration-500"
+                        style={{
+                          height: `${h}%`,
+                          background: i >= 10 ? 'linear-gradient(to top, #0EA5E9, #38bdf8)' : 'linear-gradient(to top, #1e293b, #334155)',
+                          opacity: i >= 10 ? 1 : 0.4 + (i / 12) * 0.4,
+                        }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Metrics row */}
+                  <div className="grid grid-cols-3 gap-3">
+                    {[
+                      { label: 'Data Processed', value: '2.4TB', trend: '+18%', color: 'text-green-400' },
+                      { label: 'Accuracy', value: '99.7%', trend: '↑', color: 'text-brand-400' },
+                      { label: 'Response', value: '<50ms', trend: 'Optimal', color: 'text-violet-400' },
+                    ].map((m) => (
+                      <div key={m.label} className="rounded-xl bg-surface-overlay/50 p-3 border border-surface-overlay">
+                        <div className="label-sm text-content-muted mb-1">{m.label}</div>
+                        <div className="font-heading font-bold text-lg text-content-primary">{m.value}</div>
+                        <div className={`text-xs mt-0.5 ${m.color}`}>{m.trend}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Floating insight card - top right */}
+                <div className="absolute -top-6 -right-6 card-glass p-4 animate-float">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                    </div>
+                    <span className="label-sm text-green-400">Insight</span>
+                  </div>
+                  <div className="text-sm text-content-primary font-medium">85% Cost Reduction</div>
+                  <div className="text-xs text-content-muted mt-0.5">In automation workflows</div>
+                </div>
+
+                {/* Floating badge - bottom left */}
+                <div className="absolute -bottom-4 -left-6 card-glass p-3 flex items-center gap-3 animate-float" style={{ animationDelay: '1.5s' }}>
+                  <div className="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center">
                     <svg className="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
-                </div>
-
-                {/* Fake chart */}
-                <div className="flex items-end gap-1.5 h-28 mb-6">
-                  {[30, 55, 40, 70, 50, 85, 60, 90, 75, 95, 80, 100].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 rounded-sm transition-all duration-500"
-                      style={{
-                        height: `${h}%`,
-                        background: i >= 10 ? 'linear-gradient(to top, #0EA5E9, #38bdf8)' : 'linear-gradient(to top, #1e293b, #334155)',
-                        opacity: i >= 10 ? 1 : 0.4 + (i / 12) * 0.4,
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* Metrics row */}
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { label: 'Data Processed', value: '2.4TB', trend: '+18%', color: 'text-green-400' },
-                    { label: 'Accuracy', value: '99.7%', trend: '↑', color: 'text-brand-400' },
-                    { label: 'Response', value: '<50ms', trend: 'Optimal', color: 'text-violet-400' },
-                  ].map((m) => (
-                    <div key={m.label} className="rounded-xl bg-surface-overlay/50 p-3 border border-surface-overlay">
-                      <div className="label-sm text-content-muted mb-1">{m.label}</div>
-                      <div className="font-heading font-bold text-lg text-content-primary">{m.value}</div>
-                      <div className={`text-xs mt-0.5 ${m.color}`}>{m.trend}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Floating insight card - top right */}
-              <div className="absolute -top-6 -right-6 card-glass p-4 animate-float">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
+                  <div>
+                    <div className="text-xs font-semibold text-content-primary">Enterprise Ready</div>
+                    <div className="text-xs text-content-muted">SOC 2 Compliant</div>
                   </div>
-                  <span className="label-sm text-green-400">Insight</span>
-                </div>
-                <div className="text-sm text-content-primary font-medium">85% Cost Reduction</div>
-                <div className="text-xs text-content-muted mt-0.5">In automation workflows</div>
-              </div>
-
-              {/* Floating badge - bottom left */}
-              <div className="absolute -bottom-4 -left-6 card-glass p-3 flex items-center gap-3 animate-float" style={{ animationDelay: '1.5s' }}>
-                <div className="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-content-primary">Enterprise Ready</div>
-                  <div className="text-xs text-content-muted">SOC 2 Compliant</div>
                 </div>
               </div>
-            </div>
-          </AnimateIn>
+            </AnimateIn>
+          </div>
         </div>
       </div>
 

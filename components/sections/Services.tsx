@@ -1,8 +1,15 @@
-```tsx
+import { LucideIcon } from 'lucide-react'
 import AnimateIn from '@/components/ui/AnimateIn'
 import { Brain, Cpu, BarChart3, Layers, Zap, GitBranch } from 'lucide-react'
 
-const services = [
+interface Service {
+  icon: LucideIcon
+  title: string
+  description: string
+  highlight: string
+}
+
+const services: Service[] = [
   {
     icon: Brain,
     title: 'AI-Powered Analytics',
@@ -149,4 +156,3 @@ export default function Services() {
     </section>
   )
 }
-```

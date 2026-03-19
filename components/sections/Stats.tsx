@@ -76,42 +76,42 @@ export default function Stats() {
         {/* Stats grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, i) => (
-            <AnimateIn 
-              key={stat.label} 
-              delay={i * 100}
-              animation="fade-up"
-              className="group relative"
-            >
-              {/* Card background */}
-              <div className="relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 overflow-hidden transition-all duration-500 hover:border-brand-500/30 hover:bg-white/[0.05]">
-                
-                {/* Top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-brand-500/0 group-hover:bg-brand-500/[0.03] transition-colors duration-500 rounded-2xl" />
-                
-                <div className="relative">
-                  {/* Large number */}
-                  <div className="font-heading font-black text-display-xl text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/60 mb-2">
-                    <CountUp target={stat.value} suffix={stat.suffix} />
-                  </div>
+            <div key={stat.label}>
+              <AnimateIn 
+                delay={i * 100}
+                className="group relative"
+              >
+                {/* Card background */}
+                <div className="relative rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 overflow-hidden transition-all duration-500 hover:border-brand-500/30 hover:bg-white/[0.05]">
                   
-                  {/* Label */}
-                  <div className="font-heading font-semibold text-lg text-content-primary mb-1">
-                    {stat.label}
-                  </div>
+                  {/* Top accent line */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  {/* Description */}
-                  <div className="text-sm text-content-muted">
-                    {stat.description}
+                  {/* Hover glow */}
+                  <div className="absolute inset-0 bg-brand-500/0 group-hover:bg-brand-500/[0.03] transition-colors duration-500 rounded-2xl" />
+                  
+                  <div className="relative">
+                    {/* Large number */}
+                    <div className="font-heading font-black text-display-xl text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/60 mb-2">
+                      <CountUp target={stat.value} suffix={stat.suffix} />
+                    </div>
+                    
+                    {/* Label */}
+                    <div className="font-heading font-semibold text-lg text-content-primary mb-1">
+                      {stat.label}
+                    </div>
+                    
+                    {/* Description */}
+                    <div className="text-sm text-content-muted">
+                      {stat.description}
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Corner accent - top left */}
-              <div className="absolute top-3 left-3 w-2 h-2 rounded-full bg-brand-500/20 group-hover:bg-brand-500/50 transition-colors duration-500" />
-            </AnimateIn>
+                
+                {/* Corner accent - top left */}
+                <div className="absolute top-3 left-3 w-2 h-2 rounded-full bg-brand-500/20 group-hover:bg-brand-500/50 transition-colors duration-500" />
+              </AnimateIn>
+            </div>
           ))}
         </div>
         

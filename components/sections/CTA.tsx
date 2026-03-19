@@ -1,4 +1,5 @@
-```tsx
+'use client'
+
 import AnimateIn from '@/components/ui/AnimateIn'
 
 const CONTENT = {
@@ -93,4 +94,3 @@ export default function CTA() {
     </section>
   )
 }
-```
