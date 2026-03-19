@@ -1,3 +1,4 @@
+```react
 'use client'
 
 import AnimateIn from '@/components/ui/AnimateIn'
@@ -20,7 +21,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#0f0f13] pt-nav"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[var(--color-background)] pt-nav"
     >
       {/* Background depth layers */}
       <div className="absolute inset-0">
@@ -32,7 +33,7 @@ export default function Hero() {
         {/* Secondary orb */}
         <div
           aria-hidden
-          className="absolute bottom-[-10%] right-[5%] w-[600px] h-[600px] rounded-full bg-indigo-600/15 blur-[150px] animate-pulse pointer-events-none"
+          className="absolute bottom-[-10%] right-[5%] w-[600px] h-[600px] rounded-full bg-brand-600/15 blur-[150px] animate-pulse pointer-events-none"
           style={{ animationDelay: '2s' }}
         />
         {/* Dot grid */}
@@ -71,7 +72,7 @@ export default function Hero() {
             <AnimateIn delay={80}>
               <h1 className="font-heading font-black text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.03em] text-content-primary mb-6">
                 {CONTENT.headline}{' '}
-                <span className="bg-gradient-to-r from-brand-500 via-indigo-500 to-brand-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
+                <span className="bg-gradient-to-r from-brand-500 via-brand-500 to-brand-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
                   {CONTENT.highlight}
                 </span>
               </h1>
@@ -91,14 +92,14 @@ export default function Hero() {
                   <div className="absolute inset-0 bg-brand-500/40 blur-2xl rounded-pill scale-110" />
                   <a
                     href={CONTENT.cta.href}
-                    className="relative z-10 inline-flex px-8 py-4 font-body font-semibold bg-brand-500 text-content-inverse rounded-card hover:bg-brand-700 hover:shadow-glow-lg transition-all duration-300 ease-expo-out"
+                    className="relative z-10 inline-flex px-8 py-4 font-heading font-semibold bg-brand-500 text-content-inverse rounded-card hover:bg-brand-700 hover:shadow-glow-lg transition-all duration-300 ease-expo-out"
                   >
                     {CONTENT.cta.label}
                   </a>
                 </div>
                 <a
                   href={CONTENT.secondary.href}
-                  className="inline-flex items-center gap-2 px-8 py-4 font-body font-medium border border-surface-overlay text-content-secondary rounded-card hover:border-brand-500/50 hover:text-brand-400 transition-all duration-300 ease-expo-out"
+                  className="inline-flex items-center gap-2 px-8 py-4 font-heading font-medium border border-surface-overlay text-content-secondary rounded-card hover:border-brand-500/50 hover:text-brand-400 transition-all duration-300 ease-expo-out"
                 >
                   {CONTENT.secondary.label}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,8 +137,8 @@ export default function Hero() {
                     <div>
                       <span className="label-sm text-content-muted">AI Analytics Dashboard</span>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                        <span className="text-xs text-green-400">Real-time Processing</span>
+                        <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
+                        <span className="text-xs text-brand-400">Real-time Processing</span>
                       </div>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center">
@@ -155,7 +156,7 @@ export default function Hero() {
                         className="flex-1 rounded-sm transition-all duration-500"
                         style={{
                           height: `${h}%`,
-                          background: i >= 10 ? 'linear-gradient(to top, #0EA5E9, #38bdf8)' : 'linear-gradient(to top, #1e293b, #334155)',
+                          background: i >= 10 ? 'linear-gradient(to top, var(--color-brand-500), var(--color-brand-400))' : 'linear-gradient(to top, var(--color-surface-overlay), var(--color-surface-overlay))',
                           opacity: i >= 10 ? 1 : 0.4 + (i / 12) * 0.4,
                         }}
                       />
@@ -165,14 +166,14 @@ export default function Hero() {
                   {/* Metrics row */}
                   <div className="grid grid-cols-3 gap-3">
                     {[
-                      { label: 'Data Processed', value: '2.4TB', trend: '+18%', color: 'text-green-400' },
-                      { label: 'Accuracy', value: '99.7%', trend: '↑', color: 'text-brand-400' },
-                      { label: 'Response', value: '<50ms', trend: 'Optimal', color: 'text-violet-400' },
+                      { label: 'Data Processed', value: '2.4TB', trend: '+18%', isPositive: true },
+                      { label: 'Accuracy', value: '99.7%', trend: '↑', isPositive: true },
+                      { label: 'Response', value: '<50ms', trend: 'Optimal', isPositive: true },
                     ].map((m) => (
                       <div key={m.label} className="rounded-xl bg-surface-overlay/50 p-3 border border-surface-overlay">
                         <div className="label-sm text-content-muted mb-1">{m.label}</div>
                         <div className="font-heading font-bold text-lg text-content-primary">{m.value}</div>
-                        <div className={`text-xs mt-0.5 ${m.color}`}>{m.trend}</div>
+                        <div className={`text-xs mt-0.5 ${m.isPositive ? 'text-brand-400' : 'text-content-muted'}`}>{m.trend}</div>
                       </div>
                     ))}
                   </div>
@@ -181,12 +182,12 @@ export default function Hero() {
                 {/* Floating insight card - top right */}
                 <div className="absolute -top-6 -right-6 card-glass p-4 animate-float">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-8 h-8 rounded-full bg-brand-500/20 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
                     </div>
-                    <span className="label-sm text-green-400">Insight</span>
+                    <span className="label-sm text-brand-400">Insight</span>
                   </div>
                   <div className="text-sm text-content-primary font-medium">85% Cost Reduction</div>
                   <div className="text-xs text-content-muted mt-0.5">In automation workflows</div>
@@ -211,7 +212,8 @@ export default function Hero() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0f0f13] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[var(--color-background)] to-transparent pointer-events-none" />
     </section>
   )
 }
+```

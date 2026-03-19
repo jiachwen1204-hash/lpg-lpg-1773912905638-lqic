@@ -1,3 +1,4 @@
+```tsx
 'use client'
 
 import AnimateIn from '@/components/ui/AnimateIn'
@@ -12,7 +13,7 @@ const CONTENT = {
 
 export default function CTA() {
   return (
-    <section className="py-section-lg relative overflow-hidden bg-[#0f0f13]">
+    <section className="py-section-lg relative overflow-hidden bg-surface-primary">
       {/* Background depth layers */}
       <div className="absolute inset-0">
         {/* Primary ambient glow */}
@@ -30,7 +31,7 @@ export default function CTA() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <AnimateIn>
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-brand-500/10 border border-brand-500/20 text-brand-400 text-sm font-medium mb-8">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-brand-500/10 border border-brand-500/20 text-brand-400 text-sm font-body font-medium mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
             {CONTENT.eyebrow}
           </span>
@@ -46,7 +47,7 @@ export default function CTA() {
         </AnimateIn>
 
         <AnimateIn delay={200}>
-          <p className="text-lg md:text-xl text-content-secondary/80 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-content-secondary/80 max-w-2xl mx-auto mb-12 leading-relaxed font-body font-light">
             {CONTENT.subtext}
           </p>
         </AnimateIn>
@@ -77,10 +78,10 @@ export default function CTA() {
         {/* Trust indicators */}
         <AnimateIn delay={400}>
           <div className="mt-16 pt-10 border-t border-white/5">
-            <p className="text-sm text-content-muted mb-6">Trusted by forward-thinking organizations</p>
+            <p className="text-sm text-content-muted mb-6 font-body">Trusted by forward-thinking organizations</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
               {['Enterprise Corp', 'TechFlow Inc', 'DataFirst', 'NextGen AI', 'ScaleUp'].map((company) => (
-                <span key={company} className="text-sm font-medium text-content-secondary tracking-wide">
+                <span key={company} className="text-sm font-body font-medium text-content-secondary tracking-wide">
                   {company}
                 </span>
               ))}
@@ -94,3 +95,4 @@ export default function CTA() {
     </section>
   )
 }
+```

@@ -39,7 +39,7 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
 
 export default function Stats() {
   return (
-    <section className="relative py-24 overflow-hidden bg-[#0f0f13]">
+    <section className="relative py-24 overflow-hidden bg-surface-primary">
       {/* Ambient glow orbs */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-500/[0.06] blur-[180px] pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-violet-600/[0.08] blur-[120px] pointer-events-none" />
@@ -68,7 +68,7 @@ export default function Stats() {
               for Itself
             </span>
           </h2>
-          <p className="text-lg text-content-secondary max-w-2xl mx-auto">
+          <p className="font-body text-lg text-content-secondary max-w-2xl mx-auto">
             Real metrics from real deployments — proving that our AI ecosystem delivers measurable business impact at enterprise scale.
           </p>
         </AnimateIn>
@@ -102,7 +102,7 @@ export default function Stats() {
                     </div>
                     
                     {/* Description */}
-                    <div className="text-sm text-content-muted">
+                    <div className="font-body text-sm text-content-muted">
                       {stat.description}
                     </div>
                   </div>
@@ -117,7 +117,7 @@ export default function Stats() {
         
         {/* Bottom decorative element */}
         <div className="mt-16 flex justify-center">
-          <div className="flex items-center gap-8 text-content-muted text-sm">
+          <div className="flex items-center gap-8 text-content-muted font-body text-sm">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

@@ -40,7 +40,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative bg-[#0f0f13] overflow-hidden">
+    <footer className="relative bg-[var(--color-surface-inverse)] overflow-hidden" style={{ fontFamily: 'var(--font-body)' }}>
       {/* Gradient accent line at top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent" />
       
@@ -67,7 +67,7 @@ export default function Footer() {
                 alt="Strongest logo" 
                 className="h-10 w-auto object-contain" 
               />
-              <span className="font-heading font-bold text-2xl text-content-inverse group-hover:text-brand-500 transition-colors">
+              <span className="font-heading font-bold text-2xl text-content-inverse group-hover:text-brand-500 transition-colors" style={{ fontFamily: 'var(--font-heading)' }}>
                 {BRAND.name}
               </span>
             </Link>
@@ -124,7 +124,7 @@ export default function Footer() {
           <div className="lg:col-span-4 grid grid-cols-3 gap-8">
             {/* Solutions */}
             <div>
-              <h3 className="font-heading font-semibold text-content-inverse mb-5 text-sm uppercase tracking-wider">
+              <h3 className="font-heading font-semibold text-content-inverse mb-5 text-sm uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
                 Solutions
               </h3>
               <ul className="space-y-3">
@@ -144,7 +144,7 @@ export default function Footer() {
 
             {/* Company */}
             <div>
-              <h3 className="font-heading font-semibold text-content-inverse mb-5 text-sm uppercase tracking-wider">
+              <h3 className="font-heading font-semibold text-content-inverse mb-5 text-sm uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
                 Company
               </h3>
               <ul className="space-y-3">
@@ -164,7 +164,7 @@ export default function Footer() {
 
             {/* Resources */}
             <div>
-              <h3 className="font-heading font-semibold text-content-inverse mb-5 text-sm uppercase tracking-wider">
+              <h3 className="font-heading font-semibold text-content-inverse mb-5 text-sm uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
                 Resources
               </h3>
               <ul className="space-y-3">
@@ -191,7 +191,7 @@ export default function Footer() {
           
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="font-heading font-bold text-xl text-content-inverse mb-2">
+              <h3 className="font-heading font-bold text-xl text-content-inverse mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
                 Ready to transform your business?
               </h3>
               <p className="text-sm text-content-muted">

@@ -1,3 +1,4 @@
+```jsx
 import AnimateIn from '@/components/ui/AnimateIn'
 import { QuoteIcon, StarIcon, ChartBarIcon, BoltIcon, ShieldCheckIcon } from 'lucide-react'
 
@@ -33,7 +34,7 @@ const stats = [
 
 export default function SocialProof() {
   return (
-    <section className="py-section bg-[#0f0f13] relative overflow-hidden">
+    <section className="py-section bg-brand-950 relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-500/8 blur-[180px] pointer-events-none" />
 
@@ -49,7 +50,7 @@ export default function SocialProof() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <AnimateIn className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-sm font-body font-medium mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
             Trusted by industry leaders
           </span>
@@ -59,7 +60,7 @@ export default function SocialProof() {
               Intelligent Business
             </span>
           </h2>
-          <p className="text-content-secondary text-lg mt-4 max-w-2xl mx-auto">
+          <p className="font-body text-content-secondary text-lg mt-4 max-w-2xl mx-auto">
             Leading enterprises leverage Strongest to automate operations, extract actionable insights, and scale their AI capabilities without compromise.
           </p>
         </AnimateIn>
@@ -77,8 +78,8 @@ export default function SocialProof() {
                       <span className="text-green-400 text-sm">↑</span>
                     </div>
                   </div>
-                  <div className="font-semibold text-white text-lg">{stat.label}</div>
-                  <div className="text-sm text-white/40 mt-1">{stat.sublabel}</div>
+                  <div className="font-body font-semibold text-white text-lg">{stat.label}</div>
+                  <div className="font-body text-sm text-white/40 mt-1">{stat.sublabel}</div>
                 </div>
               </div>
             </AnimateIn>
@@ -87,13 +88,13 @@ export default function SocialProof() {
 
         {/* Client Logo Marquee */}
         <div className="relative mb-20 overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0f0f13] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0f0f13] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-brand-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-brand-950 to-transparent z-10 pointer-events-none" />
           <div className="flex gap-6 animate-marquee w-max">
             {[...clients, ...clients].map((name, i) => (
               <div
                 key={i}
-                className="whitespace-nowrap px-6 py-3 rounded-xl border border-white/10 bg-white/[0.03] text-white/60 font-medium text-sm"
+                className="whitespace-nowrap px-6 py-3 rounded-xl border border-white/10 bg-white/[0.03] text-white/60 font-body font-medium text-sm hover:border-brand-500/40 hover:bg-white/[0.06] hover:text-white/80 transition-all duration-300 cursor-default"
               >
                 {name}
               </div>
@@ -121,7 +122,7 @@ export default function SocialProof() {
                     </div>
                   </div>
 
-                  <p className="text-content-primary/90 leading-relaxed mb-6 text-lg">
+                  <p className="font-body text-content-primary/90 leading-relaxed mb-6 text-lg">
                     &ldquo;{t.quote}&rdquo;
                   </p>
 
@@ -130,8 +131,8 @@ export default function SocialProof() {
                       {t.author.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div>
-                      <div className="font-semibold text-white">{t.author}</div>
-                      <div className="text-sm text-white/50">{t.role}</div>
+                      <div className="font-body font-semibold text-white">{t.author}</div>
+                      <div className="font-body text-sm text-white/50">{t.role}</div>
                     </div>
                   </div>
                 </div>
@@ -142,24 +143,25 @@ export default function SocialProof() {
 
         {/* Trust Badges */}
         <AnimateIn className="mt-16 flex flex-wrap justify-center gap-8 items-center opacity-60">
-          <div className="flex items-center gap-2 text-white/40">
+          <div className="flex items-center gap-2 text-white/40 hover:text-brand-400 transition-colors duration-300">
             <ShieldCheckIcon className="w-5 h-5" />
-            <span className="text-sm font-medium">SOC 2 Compliant</span>
+            <span className="text-sm font-body font-medium">SOC 2 Compliant</span>
           </div>
-          <div className="flex items-center gap-2 text-white/40">
+          <div className="flex items-center gap-2 text-white/40 hover:text-brand-400 transition-colors duration-300">
             <ChartBarIcon className="w-5 h-5" />
-            <span className="text-sm font-medium">GDPR Ready</span>
+            <span className="text-sm font-body font-medium">GDPR Ready</span>
           </div>
-          <div className="flex items-center gap-2 text-white/40">
+          <div className="flex items-center gap-2 text-white/40 hover:text-brand-400 transition-colors duration-300">
             <BoltIcon className="w-5 h-5" />
-            <span className="text-sm font-medium">99.99% Uptime</span>
+            <span className="text-sm font-body font-medium">99.99% Uptime</span>
           </div>
-          <div className="flex items-center gap-2 text-white/40">
+          <div className="flex items-center gap-2 text-white/40 hover:text-brand-400 transition-colors duration-300">
             <ShieldCheckIcon className="w-5 h-5" />
-            <span className="text-sm font-medium">ISO 27001</span>
+            <span className="text-sm font-body font-medium">ISO 27001</span>
           </div>
         </AnimateIn>
       </div>
     </section>
   )
 }
+```

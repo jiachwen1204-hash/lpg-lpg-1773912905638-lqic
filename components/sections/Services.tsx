@@ -1,3 +1,4 @@
+```tsx
 import { LucideIcon } from 'lucide-react'
 import AnimateIn from '@/components/ui/AnimateIn'
 import { Brain, Cpu, BarChart3, Layers, Zap, GitBranch } from 'lucide-react'
@@ -60,7 +61,7 @@ const SUBTEXT =
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-section-lg overflow-hidden bg-[#0f0f13]">
+    <section id="services" className="relative py-section-lg overflow-hidden bg-surface-primary">
       {/* Depth layers */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Ambient glow */}
@@ -87,7 +88,7 @@ export default function Services() {
               with AI
             </span>
           </h2>
-          <p className="max-w-3xl mx-auto text-lg text-content-secondary leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg text-content-secondary leading-relaxed font-body">
             {SUBTEXT}
           </p>
         </AnimateIn>
@@ -117,7 +118,7 @@ export default function Services() {
                   <h3 className="font-heading font-bold text-xl text-content-inverse mb-3 group-hover:text-brand-400 transition-colors duration-300">
                     {svc.title}
                   </h3>
-                  <p className="text-content-secondary leading-relaxed">{svc.description}</p>
+                  <p className="text-content-secondary leading-relaxed font-body">{svc.description}</p>
                 </div>
               </div>
             </AnimateIn>
@@ -127,7 +128,7 @@ export default function Services() {
         {/* Bottom CTA */}
         <AnimateIn delay={600}>
           <div className="mt-16 text-center">
-            <p className="text-content-muted mb-6">Ready to transform your business operations?</p>
+            <p className="text-content-muted mb-6 font-body">Ready to transform your business operations?</p>
             <div className="relative inline-flex">
               <div className="absolute inset-0 bg-brand-500/30 blur-xl rounded-pill scale-110" />
               <a
@@ -156,3 +157,4 @@ export default function Services() {
     </section>
   )
 }
+```

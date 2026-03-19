@@ -1,3 +1,4 @@
+```javascript
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
@@ -35,7 +36,7 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-[#0f0f13]/95 backdrop-blur-md border-b border-[#2a2a3a] shadow-[0_0_30px_rgba(14,165,233,0.05)]'
+          ? 'bg-[var(--color-background)]/95 backdrop-blur-md border-b border-[var(--color-border)] shadow-[0_0_30px_rgba(14,165,233,0.05)]'
           : 'bg-transparent',
       )}
     >
@@ -49,7 +50,7 @@ export default function Navbar() {
             alt="Strongest logo" 
             className="h-10 w-auto object-contain" 
           />
-          <span className="font-heading font-bold text-xl text-[#f1f1f5] group-hover:text-brand-500 transition-colors">
+          <span className="font-heading font-bold text-xl text-[var(--color-foreground)] group-hover:text-brand-500 transition-colors duration-200">
             {BRAND_NAME}
           </span>
         </Link>
@@ -59,7 +60,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="px-4 py-2 text-sm text-[#8b8ba7] hover:text-[#f1f1f5] rounded-lg hover:bg-[#17171f] transition-colors duration-200"
+                className="px-4 py-2 text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] rounded-lg hover:bg-[var(--color-muted)] transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -70,7 +71,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href={CTA.href}
-            className="relative group px-5 py-2.5 text-sm font-semibold bg-brand-500 text-[#0f0f13] rounded-lg hover:bg-brand-700 transition-all duration-300 hover:shadow-[0_0_25px_rgba(14,165,233,0.4)]"
+            className="relative group px-5 py-2.5 text-sm font-semibold bg-brand-500 text-[var(--color-background)] rounded-lg hover:bg-brand-700 transition-all duration-300 hover:shadow-[0_0_25px_rgba(14,165,233,0.4)]"
           >
             <span className="relative z-10">{CTA.label}</span>
             <div className="absolute inset-0 bg-brand-500 rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />
@@ -80,21 +81,21 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(v => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
-          className="md:hidden p-2 rounded-lg text-[#8b8ba7] hover:text-[#f1f1f5] hover:bg-[#17171f] transition-colors"
+          className="md:hidden p-2 rounded-lg text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-muted)] transition-colors duration-200"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </nav>
 
       {open && (
-        <div className="md:hidden bg-[#0f0f13] border-b border-[#2a2a3a]">
+        <div className="md:hidden bg-[var(--color-background)] border-b border-[var(--color-border)]">
           <ul className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
             {navLinks.map(link => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-3 text-sm text-[#8b8ba7] hover:text-[#f1f1f5] rounded-lg hover:bg-[#17171f] transition-colors"
+                  className="block px-4 py-3 text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] rounded-lg hover:bg-[var(--color-muted)] transition-colors duration-200"
                 >
                   {link.label}
                 </a>
@@ -103,7 +104,8 @@ export default function Navbar() {
             <li className="pt-2">
               <a
                 href={CTA.href}
-                className="block px-5 py-3 text-sm font-semibold text-center bg-brand-500 text-[#0f0f13] rounded-lg hover:bg-brand-700 transition-colors"
+                onClick={() => setOpen(false)}
+                className="block px-5 py-3 text-sm font-semibold text-center bg-brand-500 text-[var(--color-background)] rounded-lg hover:bg-brand-700 transition-colors duration-200"
               >
                 {CTA.label}
               </a>
@@ -114,3 +116,4 @@ export default function Navbar() {
     </header>
   )
 }
+```
